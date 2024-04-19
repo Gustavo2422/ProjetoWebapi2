@@ -20,7 +20,7 @@ namespace WebapiPessoa.Controllers
         public PessoaResponse ProcessarInformacoesPessoa([FromBody] PessoaRequest request) 
         {
             var anoAtual = DateTime.Now.Year;
-            var idade = anoAtual - request.DataNascimento.Year;
+            var idadePessoa = anoAtual - request.DataNascimento.Year;
 
             var imc = Math.Round (request.Peso / (request.Altura * request.Altura), 2);
             var classificacao = "";
@@ -85,7 +85,7 @@ namespace WebapiPessoa.Controllers
             resposta.Aliquota = aliquota;
             resposta.SalarioLiquido = salarioLiquido;
             resposta.Classificacao = classificacao;
-            resposta.Idade = idade;
+            resposta.Idade = idadePessoa;
             resposta.Imc = imc;
             resposta.Inss = inss;
             resposta.Nome = request.Nome;
